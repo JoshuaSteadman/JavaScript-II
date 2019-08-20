@@ -84,11 +84,21 @@ const ticketPriceTotal = runners.reduce(function(accumulator, item){
 console.log(ticketPriceTotal);
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
-const largestCompany = runners.filter(item => item.company_name === '');
-console.log(largestCompany);
+
 // Problem 1
 //Grant an award for the company with highest number of participants
+let a = [];
+runners.map(item => {
+  return a.push(item.company_name.toLowerCase());
+});
+result = { }; // Create an object to store the company_name: count
+for(var i = 0; i < a.length; ++i) {
+    if(!result[a[i]])
+        result[a[i]] = 0;
+    ++result[a[i]];
+}
 
+console.log("The award for the company with the most participants goes to: " + Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b)+" !");
 // Problem 2
 
 // Problem 3
