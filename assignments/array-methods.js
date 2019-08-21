@@ -65,9 +65,8 @@ console.log(fullNames);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
-let firstNamesAllCaps = [];
-runners.map(item => {
-  return firstNamesAllCaps.push(item.first_name.toUpperCase());
+let firstNamesAllCaps = runners.map(item => {
+  return (item.first_name.toUpperCase());
 });
 console.log(firstNamesAllCaps);
 
@@ -87,18 +86,12 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 //Grant an award for the company with highest number of participants
-let a = [];
-runners.map(item => {
-  return a.push(item.company_name.toLowerCase());
-});
+let a = runners.map(item => item.company_name.toLowerCase()); // Push each company name and force to lower case to prevent error
 result = { }; // Create an object to store the company_name: count
-for(var i = 0; i < a.length; ++i) {
-    if(!result[a[i]])
+for(var i = 0; i < a.length; ++i) { // Iterate my new array 
+    if(!result[a[i]]) //If result array[index] not found set count to 0 otherwise increment +1
         result[a[i]] = 0;
     ++result[a[i]];
 }
-
+//Now we use Object.keys to return a array of our object so we can use the array method .reduce (a=accumulator, b=item) 
 console.log("The award for the company with the most participants goes to: " + Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b)+" !");
-// Problem 2
-
-// Problem 3
